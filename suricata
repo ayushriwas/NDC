@@ -1,0 +1,47 @@
+Surikata:
+Package name: suricata
+sudo nano /etc/suricata/suricata.yaml
+Check /etc/suricata/rules
+Check af-packet Change the interface
+Search: rule-files
+Add new rule - local.rules
+ 
+Alert icmp any any -> any any (msg: “ping detected”; sid: 123; rev: 1;)
+Tail /var/log/suricata.conf
+
+SURICATA AS IPS
+To run in ips mode we need NFQueue
+Suricata –build-info | grep NFQueue 
+
+NFQueue - kernel feature
+
+Goto to suricata.yaml 
+/etc/suricata/suricata.yaml
+And search for nfq
+And uncomment 
+Mode
+Repeat-mark
+Repeat-mask
+route-queue:2
+
+Check for iptables
+
+Write a rule to redirect icmp packet to NFQueue
+
+Sudo iptables -I INPUT -p icmp -j NFQUEUE --queue-num 2
+Sudo iptables -I OUTPUT -p icmp -j NFQUEUE --queue-num 2
+
+sudo iptables -L -v 
+
+Inside rules drop icmp any any —--------already written
+
+Stop suricata because it is running in ids mode and we want to run it in ips mode
+If it run in ids it will generate both logs of ids and ips
+
+Now ping and check the packets are getting dropped or not according to rule
+
+KEY POINTS:
+NFQUEue 
+Kernel
+Queue
+
