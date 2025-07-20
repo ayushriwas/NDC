@@ -1,0 +1,1 @@
+alert ip any1 any2 -> any3 any4 (msg: “any message” ; sid: 100001;) 
