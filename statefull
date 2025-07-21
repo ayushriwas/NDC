@@ -1,0 +1,7 @@
+Iptables -F
+Iptables -p FORWARD DROP 
+Iptables -p INPUT DROP
+Iptables -p OUTPUT ACCEPT
+Iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -m state –state ESHTABLISHED -j ACCEPT
+iptables -A INPUT -s <source ip> -p TCP –dport 22 -j ACCEPT
