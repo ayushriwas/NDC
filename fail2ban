@@ -1,0 +1,21 @@
+Python3-systemd fail2ban 
+Do not touch jail.conf
+Instead of doing that you can create jail.local and make changes in this file
+
+[sshd]
+Backend = systemd
+Enabled = true
+Port = 22
+Filter = sshd
+Maxretry = 3
+Bantime = 3600
+Findtime = 600
+
+Findtime is duration in second which in if the machine tries to get access in the giveen duration it will be block
+
+
+Restart fail2ban
+Check status
+
+Sudo fail2ban-client status
+Sudo fail2ban-client status sshd
