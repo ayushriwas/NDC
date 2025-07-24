@@ -4,9 +4,9 @@ sudo ./check_ncpa.py -t <password> -H <host ip> -M system/agent_version
         sudo apt update && sudo apt install p7zip-full -y
         7z x file.7z
 
-Define command {
-command_name 	check_ncpa
-Command_line 	$USER1$/check_ncpa.py  -H $HOSTADDRESS$  $ARG1$
+define command {
+        command_name 	check_ncpa
+        command_line 	$USER1$/check_ncpa.py  -H $HOSTADDRESS$  $ARG1$
 }
 
 define host {
