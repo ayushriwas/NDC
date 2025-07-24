@@ -1,5 +1,8 @@
 [api] change password then restart
 sudo ./check_ncpa.py -t <password> -H <host ip> -M system/agent_version
+# On Debian/Ubuntu for unziong 7z files
+        sudo apt update && sudo apt install p7zip-full -y
+        7z x file.7z
 
 Define command {
 command_name 	check_ncpa
