@@ -1,5 +1,6 @@
 #!/bin/bash
-apt-get install -y automake autotools-dev bc build-essential dc gawk gettext libmcrypt-dev libnet-snmp-perl libssl-dev snmp
+apt-get install -y automake autotools-dev bc build-essential dc 
+apt-get install -y gawk gettext libmcrypt-dev libnet-snmp-perl libssl-dev snmp
 
 cd /tmp
 wget --no-check-certificate -O nagios-plugins.tar.gz https://github.com/nagios-plugins/nagios-plugins/archive/release-2.4.6.tar.gz
